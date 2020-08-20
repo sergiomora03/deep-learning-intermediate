@@ -22,10 +22,21 @@ recurrentes).
 
 # Contenido
 
+## Semana 2
+
 |Description  | File|
 |-----------: |:------------:|
-|notebook| [Semana1_IntroduccionModelosAprendizaje_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/Modelos-Aprendizaje/blob/master/Semana1_IntroduccionModelosAprendizaje_Actividad.ipynb) |
-|data| [germancredit.csv](https://raw.githubusercontent.com/sergiomora03/Modelos-Aprendizaje/master/germancredit.csv) |
+|notebook| [Semana2_IntroduccionRedesNeuronales_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana2_IntroduccionRedesNeuronales_Actividad.ipynb) |
+|data| [germancredit.csv](https://raw.githubusercontent.com/sergiomora03/deep-learning-intermediate/master/Activities/germancredit.csv) |
+
+# Micro-proyectos
+
+## Micro-Proyecto1_Start-Up Agricola
+
+|Description  | File|
+|-----------: |:------------:|
+|notebook| [MicroProyecto1_StartUp.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1_StartUp.ipynb) |
+|data| [DatosAgro.txt](https://raw.githubusercontent.com/sergiomora03/deep-learning-intermediate/master/Micro-Proyecto1_Start-Up%20Agricola/DatosAgro.txt) |
 
 
 
