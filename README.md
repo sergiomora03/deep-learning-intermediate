@@ -20,7 +20,7 @@ recurrentes).
 
  
 
-# Contenido
+# Contenido ![GitHub last commit](https://img.shields.io/github/last-commit/sergiomora03/deep-learning-intermediate)
 
 ## Semana 2
 
