@@ -1,8 +1,8 @@
 ![](https://investigaciones.uniandes.edu.co/wp-content/themes/vicerrectoria001/images/logo2.png)
 
- 
+ ![GitHub top language](https://img.shields.io/github/languages/top/sergiomora03/deep-learning-intermediate) ![GitHub language count](https://img.shields.io/github/languages/count/sergiomora03/deep-learning-intermediate)
 
-# Métodos Avanzados de Análisis de datos II
+# Métodos Avanzados de Análisis de datos II [![HitCount](http://hits.dwyl.com/sergiomora03/deep-learning-intermediate.svg)](http://hits.dwyl.com/sergiomora03/deep-learning-intermediate)
 
 Instructor: *Camilo Andres Franco De Los Rios*
 
@@ -13,6 +13,8 @@ simples (una sola capa) y profundas (múltiples capas densamente conectadas, con
 recurrentes).
 
 ## Integrantes
+
+
 
 * Cindy Zulima Alzate Roman <c.alzate@uniandes.edu.co>
 * Jahir Stevens Rodriguez Riveros <js.rodriguezr@uniandes.edu.co>
