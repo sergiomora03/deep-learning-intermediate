@@ -12,9 +12,7 @@ sistemas de aprendizaje personalizado. Tomando como punto de partida las redes n
 simples (una sola capa) y profundas (múltiples capas densamente conectadas, convolucionales o
 recurrentes).
 
-## Integrantes
-
-
+## Integrantes ![SPOCD](https://img.shields.io/badge/Students-MIIA-brightgreen?logo=CodeChef)
 
 * Cindy Zulima Alzate Roman <c.alzate@uniandes.edu.co>
 * Jahir Stevens Rodriguez Riveros <js.rodriguezr@uniandes.edu.co>
