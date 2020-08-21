@@ -37,7 +37,7 @@ recurrentes).
 |-----------: |:------------:|
 |statement|[MicroProyecto1.pdf](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1.pdf)|
 |notebook| [MicroProyecto1_StartUp.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1_StartUp.ipynb) |
-|data| [DatosAgro.txt](https://raw.githubusercontent.com/sergiomora03/deep-learning-intermediate/master/Micro-Proyecto1_Start-Up%20Agricola/DatosAgro.txt) |
+|data| [DatosAgro.txt](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/DatosAgro.txt) |
 
 
 
