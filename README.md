@@ -1,6 +1,6 @@
-![](https://investigaciones.uniandes.edu.co/wp-content/themes/vicerrectoria001/images/logo2.png)
-
  ![GitHub top language](https://img.shields.io/github/languages/top/sergiomora03/deep-learning-intermediate) ![GitHub language count](https://img.shields.io/github/languages/count/sergiomora03/deep-learning-intermediate)
+
+![](https://investigaciones.uniandes.edu.co/wp-content/themes/vicerrectoria001/images/logo2.png)
 
 # Métodos Avanzados de Análisis de datos II [![HitCount](http://hits.dwyl.com/sergiomora03/deep-learning-intermediate.svg)](http://hits.dwyl.com/sergiomora03/deep-learning-intermediate)
 
