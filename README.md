@@ -29,6 +29,16 @@ recurrentes).
 |notebook| [Semana2_IntroduccionRedesNeuronales_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana2_IntroduccionRedesNeuronales_Actividad.ipynb) |
 |data| [germancredit.csv](https://raw.githubusercontent.com/sergiomora03/deep-learning-intermediate/master/Activities/germancredit.csv) |
 
+
+## Semana 3
+
+|Description  | File|
+|-----------: |:------------:|
+|notebook| [Semana3_RedNeuronalSencilla_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana3_RedNeuronalSencilla_Actividad.ipynb) |
+|image| [IMG_3451.JPG](https://learn-us-east-1-prod-fleet01-xythos.s3.amazonaws.com/5cdee82dbf7b1/10921209?response-cache-control=private%2C%20max-age%3D21600&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27IMG_3451.JPG&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200827T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=21600&X-Amz-Credential=AKIAZH6WM4PL5SJBSTP6%2F20200827%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=62d5e9154722a9abf5f7ccafc32c67a6783691e8681ce58356a388ff5d8f8353) |
+|script|[ImportImagenes.py](https://raw.githubusercontent.com/sergiomora03/deep-learning-intermediate/master/Activities/ImportImagenes.py)|
+
+
 # Micro-proyectos
 
 ## Micro-Proyecto1_Start-Up Agricola
