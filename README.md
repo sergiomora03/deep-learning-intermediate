@@ -44,6 +44,13 @@ recurrentes).
 |-----------: |:------------:|
 |Notebook|[Semana4_RedNeuronalProfunda_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana4_RedNeuronalProfunda_Actividad.ipynb)|
 
+
+## Semana 5
+
+|Description  | File|
+|-----------: |:------------:|
+|Notebook|[Semana5_RedesProfundas_Keras_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana5_RedesProfundas_Keras_Actividad.ipynb)|
+
 # Micro-proyectos
 
 ## Micro-Proyecto1_Start-Up Agricola
