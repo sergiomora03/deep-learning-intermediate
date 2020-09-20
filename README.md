@@ -2,7 +2,7 @@
 
 ![](https://investigaciones.uniandes.edu.co/wp-content/themes/vicerrectoria001/images/logo2.png)
 
-# Métodos Avanzados de Análisis de datos II [![HitCount](http://hits.dwyl.com/sergiomora03/deep-learning-intermediate.svg)](http://hits.dwyl.com/sergiomora03/deep-learning-intermediate)
+# Métodos Avanzados de Análisis de datos II 
 
 Instructor: *Camilo Andres Franco De Los Rios*
 
