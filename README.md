@@ -51,6 +51,13 @@ recurrentes).
 |-----------: |:------------:|
 |Notebook|[Semana5_RedesProfundas_Keras_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana5_RedesProfundas_Keras_Actividad_final.ipynb)|
 
+## Semana 5
+
+|Description  | File|
+|-----------: |:------------:|
+|Notebook|[Semana6_RedesConvolucionales_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana6_RedesConvolucionales_Actividad.ipynb)|
+
+
 # Micro-proyectos
 
 ## Micro-Proyecto1_Start-Up Agricola
