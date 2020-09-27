@@ -51,7 +51,7 @@ recurrentes).
 |-----------: |:------------:|
 |Notebook|[Semana5_RedesProfundas_Keras_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana5_RedesProfundas_Keras_Actividad_final.ipynb)|
 
-## Semana 5
+## Semana 6
 
 |Description  | File|
 |-----------: |:------------:|
