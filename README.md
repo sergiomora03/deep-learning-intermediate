@@ -58,6 +58,14 @@ recurrentes).
 |Notebook|[Semana6_RedesConvolucionales_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana6_RedesConvolucionales_Actividad.ipynb)|
 
 
+## Semana 7
+
+|Description  | File|
+|-----------: |:------------:|
+|Notebook|[Semana7_TransferLearning_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana7_TransferLearning_Actividad.ipynb)
+
+
+
 # Micro-proyectos
 
 ## Micro-Proyecto1_Start-Up Agricola
@@ -67,7 +75,5 @@ recurrentes).
 |statement|[MicroProyecto1.pdf](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1.pdf)|
 |notebook| [MicroProyecto1_StartUp.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1_StartUp.ipynb) |
 |data| [DatosAgro.txt](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/DatosAgro.txt) |
-
-
 
 
