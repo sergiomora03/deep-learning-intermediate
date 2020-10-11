@@ -60,9 +60,10 @@ recurrentes).
 
 ## Semana 7
 
-|Description  | File|
-|-----------: |:------------:|
-|Notebook|[Semana7_TransferLearning_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana7_TransferLearning_Actividad.ipynb)
+|Description  | File| Comments |
+|-----------: |:------------:|:---:|
+|Notebook|[Semana7_TransferLearning_Actividad_Final.html](https://sergiomora03.github.io/deep-learning-intermediate/Activities/Semana7_TransferLearning_Actividad_Final.html)| |
+|Notebook|[Semana7_TransferLearning_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana7_TransferLearning_Actividad.ipynb)|Break link!|
 
 
 
