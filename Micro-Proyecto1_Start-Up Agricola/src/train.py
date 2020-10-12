@@ -1,10 +1,9 @@
 # src/train.py
 
 import os
-
-from numpy import testing
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import config
+import models
 import argparse
 import create_folds
 
@@ -28,11 +27,25 @@ seed(1)
 from tensorflow.random import set_seed
 set_seed(1)
 
-
-def train(Error, test = 1):
+def run(Error, test = 1):
     if test == 1:
         data, Fechas = create_folds.datos_agro()
         for Producto in data.Producto.unique(): #data.Producto.unique()[0:test]
+            Producto_no += 1
+            print(f'Producto número: {Producto_no} , Total de productos: {len(data.Producto.unique())} , avance: {round(Producto_no/len(data.Producto.unique()))*100}%')
+            print(f'Corriendo el producto: {Producto}')
+            # Filtrando por producto
+            temp = data.query("".join(["'", Producto,"'", "== Producto"])).groupby('Fecha').agg(np.sum).Pedido
+            temp = temp.reindex(Fechas, fill_value = 0)
+
+            models.run_study("study")
+            break
+    else:
+        Producto_no = 0
+        data, Fechas = create_folds.datos_agro()
+        for Producto in data.Producto.unique(): #data.Producto.unique()[0:test]
+            Producto_no += 1
+            print(f'Producto número: {Producto_no} , Total de productos: {len(data.Producto.unique())} , avance: {round(Producto_no/len(data.Producto.unique()), 2)*100}%')
             print(f'Corriendo el producto: {Producto}')
             # Filtrando por producto
             temp = data.query("".join(["'", Producto,"'", "== Producto"])).groupby('Fecha').agg(np.sum).Pedido
@@ -108,10 +121,7 @@ def train(Error, test = 1):
 
             # Guardando modelo
             lstm_model.save(os.path.join(config.MODEL_OUTPUT, f'lstm__model_{Producto}.h5'))
-            break
-        else:
-            pass
-
+            #break
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -122,4 +132,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     Error = pd.DataFrame(columns = ['Producto', 'Rolling Forecast RMSE', 'RMSE'])
-    train(Error, test = args.test)
+    run(Error, test = args.test)
