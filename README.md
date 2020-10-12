@@ -74,6 +74,8 @@ recurrentes).
 
 |Description  | File|
 |-----------: |:------------:|
+|Site|[Micro-Proyecto 1_Start-Up Agricola](https://github.com/sergiomora03/deep-learning-intermediate/tree/master/Micro-Proyecto1_Start-Up%20Agricola)|
+<!---
 |statement|[MicroProyecto1.pdf](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1.pdf)|
 |notebook| [MicroProyecto1_StartUp.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/MicroProyecto1_StartUp.ipynb) |
 |data| [DatosAgro.txt](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/DatosAgro.txt) |
