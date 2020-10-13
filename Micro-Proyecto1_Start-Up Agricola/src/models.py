@@ -46,7 +46,7 @@ def create_model(trial):
     :rtype: tensorflow model
     """
     keras.backend.clear_session()
-    model = Sequential(name = 'Optuna_BRNN')
+    model = Sequential()
     n_layers = trial.suggest_int('n_layers', 1, 5)
     for i in range(n_layers):
         num_hidden_one = trial.suggest_int(f"layer_Bidirectional_{i}_n_units", 4, 128, log=True)
@@ -162,7 +162,7 @@ def trainer(trial):
         error_LSTM = mean_squared_error(RollBack.TEST, RollBack.LSTM)
         print(f'    SI rolling forecast -> Test RMSE: {rolling_error_LSTM}')
         print(f'    NO rolling forecast -> Test RMSE: {error_LSTM}')
-        print(f'    El modelo evaluado por si mismo da = {model.evaluate(RollBack.TEST, RollBack.LSTM)}')
+        #print(f'    El modelo evaluado por si mismo da = {model.evaluate(RollBack.TEST, RollBack.LSTM)}')
 
         Error = Error.append({'Producto': Producto, 'Rolling Forecast RMSE': rolling_error_LSTM, 'RMSE': error_LSTM}, ignore_index=True)
         Error.to_csv(os.path.join(config.ERROR_OUTPUT, 'Errores.csv'))
@@ -202,11 +202,12 @@ def run_study(name):
     :param name: name of study
     :type name: str
     """
+    Producto = pickle.load(open(os.path.join(config.TEMP_FILE, 'Producto.dat'), 'rb'))
     study = optuna.create_study(study_name = f'Optuna_BRNN_{name}',
                                 pruner=optuna.pruners.MedianPruner(n_startup_trials=5,
                                                                     n_warmup_steps=30,
                                                                     interval_steps=10))
-    study.optimize(objective, n_trials=10, n_jobs = -1, show_progress_bar = False)
+    study.optimize(objective, n_trials=2, n_jobs = -1, show_progress_bar = False)
     pruned_trials = [t for t in study.trials if t.state == optuna.structs.TrialState.PRUNED]
     complete_trials = [t for t in study.trials if t.state == optuna.structs.TrialState.COMPLETE]
     print("Study statistics: ")
@@ -222,7 +223,41 @@ def run_study(name):
     print("  Params: ")
     for key, value in trial.params.items():
         print(f'    {key}: {value}')
+    pickle.dump(trial, open(os.path.join(config.TRIAL_OUTPUT, f'best_trial_producto_{Producto}.dat'), 'wb'))
+    pickle.dump(study, open(os.path.join(config.STUDY_OUTPUT, f'study_producto_{Producto}.dat'), 'wb'))
     #return trial
+
+def read_trial(Producto):
+    """
+    read_trial method to read the best trial with auto tune hiperparameters woth optuna
+
+    :param Producto: producto´s code
+    :type Producto: str
+    """
+    trial = pickle.load(open(os.path.join(config.TRIAL_OUTPUT, f'best_trial_producto_{Producto}.dat'), 'rb'))
+    print(f'Best trial producto: {Producto}')
+    print("  Value RMSE: ", trial.value)
+    print("  Params: ")
+    for key, value in trial.params.items():
+        print(f'    {key}: {value}')
+
+
+def read_study(Producto):
+    """
+    read_study method to read the best trial with auto tune hiperparameters woth optuna
+
+    :param Producto: producto´s code
+    :type Producto: str
+    """
+    study = pickle.load(open(os.path.join(config.STUDY_OUTPUT, f'study_producto_{Producto}.dat'), 'rb'))
+    pruned_trials = [t for t in study.trials if t.state == optuna.structs.TrialState.PRUNED]
+    complete_trials = [t for t in study.trials if t.state == optuna.structs.TrialState.COMPLETE]
+    print(f"Study statistics product: {Producto}")
+    print("  Number of finished trials: ", len(study.trials))
+    print("  Number of pruned trials: ", len(pruned_trials))
+    print("  Number of complete trials: ", len(complete_trials))
+
+    read_trial(Producto)
 
 
 def easy_model():

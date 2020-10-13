@@ -12,4 +12,7 @@ PLOT_LOSS_OUTPUT = "img/loss/"
 
 ERROR_OUTPUT = "output/"
 
+STUDY_OUTPUT = "output/study/"
+TRIAL_OUTPUT = "output/trial/"
+
 TEMP_FILE = "temp/"

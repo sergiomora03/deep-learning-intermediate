@@ -44,7 +44,7 @@ def run(Error, test = 1):
             pickle.dump(Error, open(os.path.join(config.TEMP_FILE, 'Error.dat'), 'wb'))
 
             models.run_study(f'Study_Producto_{Producto}')
-            break
+            #break
     else:
         Producto_no = 0
         data, Fechas = create_folds.datos_agro()

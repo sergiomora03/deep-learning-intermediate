@@ -25,3 +25,13 @@ Instructor: *Camilo Andres Franco De Los Rios*
 ## Documentación
 
 http://mpastell.com/pweave/examples/index.html
+
+## Falta
+
+* Agregar al EDA analísis por codificación en datos_agro()
+* Agregar al EDA index del rango creado de fechas y mensionarlos y analizarlos primero como valores perdidos y luego como 0 (cero)
+
+## Explicar
+
+* python src/model_dispatcher.py --producto VER0049 --study False
+* python src/train.py --test 1
