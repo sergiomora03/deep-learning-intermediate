@@ -33,5 +33,7 @@ http://mpastell.com/pweave/examples/index.html
 
 ## Explicar
 
-* python src/model_dispatcher.py --producto VER0049 --study False
-* python src/train.py --test 1
+* `sh run.sh`
+
+* `python src/model_dispatcher.py --producto VER0049 --study False`
+* `python src/train.py --test 1`
