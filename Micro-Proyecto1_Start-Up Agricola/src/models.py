@@ -168,7 +168,7 @@ def trainer(trial):
         Error.to_csv(os.path.join(config.ERROR_OUTPUT, 'Errores.csv'))
 
         # Guardando modelo
-        model.save(os.path.join(config.MODEL_OUTPUT, f'lstm__model_{Producto}.h5'))
+        model.save(os.path.join(config.MODEL_OUTPUT_OPTUNA, f'lstm_optuna_model_{Producto}.h5'))
 
 
         #print('Desempeño (exactitud): accu_v1='+str(accu_v) +' , accu_v2='+str(accu_p)  + ' , Optimizer=' + str(optimizer.get_config()["name"]))

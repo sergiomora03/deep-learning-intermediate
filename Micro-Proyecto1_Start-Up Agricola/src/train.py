@@ -125,7 +125,7 @@ def run(Error, test = 1):
             Error.to_csv(os.path.join(config.ERROR_OUTPUT, 'Errores.csv'))
 
             # Guardando modelo
-            lstm_model.save(os.path.join(config.MODEL_OUTPUT, f'lstm__model_{Producto}.h5'))
+            lstm_model.save(os.path.join(config.MODEL_OUTPUT_RNN, f'lstm__model_{Producto}.h5'))
             break
 
 if __name__ == "__main__":
