@@ -15,8 +15,9 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 
-import keras as K
+import tensorflow.keras.backend as K
 import tensorflow as tf
+import keras
 from keras import layers
 from keras.preprocessing import timeseries_dataset_from_array
 from keras.models import Sequential
@@ -28,7 +29,7 @@ from tensorflow.random import set_seed
 set_seed(1)
 
 
-initnorm = K.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=1)
+initnorm = keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=1)
 
 def create_model(trial):
     """
@@ -39,7 +40,7 @@ def create_model(trial):
     :return: RNN model
     :rtype: tensorflow model
     """
-    K.backend.clear_session()
+    keras.backend.clear_session()
     model = Sequential(name = 'Optuna_BRNN')
     n_layers = trial.suggest_int('n_layers', 1, 5)
     for i in range(n_layers):
@@ -135,7 +136,7 @@ def trainer(trial):
         lstm_predictions = scaler.inverse_transform(lstm_predictions_scaled)
 
         # Gráfica de perdida
-        losses_lstm = model.history.history['loss']
+        losses_lstm = model.history.history['val_loss']
         plt.figure(figsize=(20,5))
         plt.xticks(np.arange(0,21,1))
         plt.title(f'Loss Product {Producto}')
