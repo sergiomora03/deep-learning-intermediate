@@ -12,6 +12,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+import warnings
+warnings.filterwarnings('ignore')
+
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 
@@ -30,6 +33,8 @@ set_seed(1)
 
 
 initnorm = keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=1)
+
+tf.keras.backend.set_floatx('float64')
 
 def create_model(trial):
     """
@@ -123,7 +128,7 @@ def trainer(trial):
         model.compile(loss='mse', optimizer=optimizer, metrics=[tf.keras.metrics.RootMeanSquaredError()])
 
         # Ajustamos el modelo
-        model.fit(generator, epochs=epocas, verbose=0, shuffle=False)
+        history = model.fit(generator, epochs=epocas, verbose=0, shuffle=False)
 
         # Rolling forecast
         lstm_predictions_scaled = list()
@@ -136,7 +141,7 @@ def trainer(trial):
         lstm_predictions = scaler.inverse_transform(lstm_predictions_scaled)
 
         # Gráfica de perdida
-        losses_lstm = model.history.history['val_loss']
+        losses_lstm = history.history['loss']
         plt.figure(figsize=(20,5))
         plt.xticks(np.arange(0,21,1))
         plt.title(f'Loss Product {Producto}')
@@ -201,7 +206,7 @@ def run_study(name):
                                 pruner=optuna.pruners.MedianPruner(n_startup_trials=5,
                                                                     n_warmup_steps=30,
                                                                     interval_steps=10))
-    study.optimize(objective, n_trials=10, n_jobs = -1, show_progress_bar = False)#, callbacks=[tensorboard_callback])
+    study.optimize(objective, n_trials=10, n_jobs = -1, show_progress_bar = False)
     pruned_trials = [t for t in study.trials if t.state == optuna.structs.TrialState.PRUNED]
     complete_trials = [t for t in study.trials if t.state == optuna.structs.TrialState.COMPLETE]
     print("Study statistics: ")

@@ -43,7 +43,7 @@ def run(Error, test = 1):
             pickle.dump(Producto, open(os.path.join(config.TEMP_FILE, 'Producto.dat'), 'wb'))
             pickle.dump(Error, open(os.path.join(config.TEMP_FILE, 'Error.dat'), 'wb'))
 
-            models.run_study("study")
+            models.run_study(f'Study_Producto_{Producto}')
             break
     else:
         Producto_no = 0
