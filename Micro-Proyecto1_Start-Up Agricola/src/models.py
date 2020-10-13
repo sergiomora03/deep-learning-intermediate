@@ -92,11 +92,11 @@ def trainer(trial):
 
     # Inicializamos la tabla donde guardamos los resultados
     x = PrettyTable(["Exac_E", "Exac_V", "Exac_P", "Optimizer"])
-    temp = pickle.load(open(os.path.join(config.TEMP_FILE, 'temp.dat', 'rb')))
-    Producto = pickle.load(open(os.path.join(config.TEMP_FILE, 'Producto.dat', 'rb')))
-    Error = pickle.load(open(os.path.join(config.TEMP_FILE, 'Error.dat', 'rb')))
+    temp = pickle.load(open(os.path.join(config.TEMP_FILE, 'temp.dat'), 'rb'))
+    Producto = pickle.load(open(os.path.join(config.TEMP_FILE, 'Producto.dat'), 'rb'))
+    Error = pickle.load(open(os.path.join(config.TEMP_FILE, 'Error.dat'), 'rb'))
 
-    # Inicializamos el error 
+    # Inicializamos el error
     err_p = 999
 
     for i in range(0,3,1):

@@ -2,7 +2,6 @@
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-#os.system('clear')
 import config
 import models
 import argparse
@@ -40,9 +39,9 @@ def run(Error, test = 1):
             # Filtrando por producto
             temp = data.query("".join(["'", Producto,"'", "== Producto"])).groupby('Fecha').agg(np.sum).Pedido
             temp = temp.reindex(Fechas, fill_value = 0)
-            pickle.dump(temp, open(os.path.join(config.TEMP_FILE, 'temp.dat', 'wb')))
-            pickle.dump(Producto, open(os.path.join(config.TEMP_FILE, 'Producto.dat', 'wb')))
-            pickle.dump(Error, open(os.path.join(config.TEMP_FILE, 'Error.dat', 'wb')))
+            pickle.dump(temp, open(os.path.join(config.TEMP_FILE, 'temp.dat'), 'wb'))
+            pickle.dump(Producto, open(os.path.join(config.TEMP_FILE, 'Producto.dat'), 'wb'))
+            pickle.dump(Error, open(os.path.join(config.TEMP_FILE, 'Error.dat'), 'wb'))
 
             models.run_study("study")
             break
