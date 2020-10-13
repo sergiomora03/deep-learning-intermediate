@@ -5,6 +5,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import config
 
 import optuna
+import pickle
 from prettytable import PrettyTable
 
 import pandas as pd
@@ -91,6 +92,9 @@ def trainer(trial):
 
     # Inicializamos la tabla donde guardamos los resultados
     x = PrettyTable(["Exac_E", "Exac_V", "Exac_P", "Optimizer"])
+    temp = pickle.load(open(os.path.join(config.TEMP_FILE, 'temp.dat', 'rb')))
+    Producto = pickle.load(open(os.path.join(config.TEMP_FILE, 'Producto.dat', 'rb')))
+    Error = pickle.load(open(os.path.join(config.TEMP_FILE, 'Error.dat', 'rb')))
 
     # Inicializamos el error 
     err_p = 999

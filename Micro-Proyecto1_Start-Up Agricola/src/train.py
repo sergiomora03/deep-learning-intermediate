@@ -2,6 +2,7 @@
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+#os.system('clear')
 import config
 import models
 import argparse
@@ -9,6 +10,7 @@ import create_folds
 
 import pandas as pd
 import numpy as np
+import pickle
 import matplotlib.pyplot as plt
 
 import warnings
@@ -29,6 +31,7 @@ set_seed(1)
 
 def run(Error, test = 1):
     if test == 1:
+        Producto_no = 0
         data, Fechas = create_folds.datos_agro()
         for Producto in data.Producto.unique(): #data.Producto.unique()[0:test]
             Producto_no += 1
@@ -37,6 +40,9 @@ def run(Error, test = 1):
             # Filtrando por producto
             temp = data.query("".join(["'", Producto,"'", "== Producto"])).groupby('Fecha').agg(np.sum).Pedido
             temp = temp.reindex(Fechas, fill_value = 0)
+            pickle.dump(temp, open(os.path.join(config.TEMP_FILE, 'temp.dat', 'wb')))
+            pickle.dump(Producto, open(os.path.join(config.TEMP_FILE, 'Producto.dat', 'wb')))
+            pickle.dump(Error, open(os.path.join(config.TEMP_FILE, 'Error.dat', 'wb')))
 
             models.run_study("study")
             break
@@ -121,7 +127,7 @@ def run(Error, test = 1):
 
             # Guardando modelo
             lstm_model.save(os.path.join(config.MODEL_OUTPUT, f'lstm__model_{Producto}.h5'))
-            #break
+            break
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

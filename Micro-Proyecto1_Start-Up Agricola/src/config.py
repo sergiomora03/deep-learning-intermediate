@@ -10,3 +10,4 @@ PLOT_LOSS_OUTPUT = "img/loss/"
 
 ERROR_OUTPUT = "output/"
 
+TEMP_FILE = "temp/"
