@@ -26,14 +26,14 @@ Instructor: *Camilo Andres Franco De Los Rios*
 
 http://mpastell.com/pweave/examples/index.html
 
-## Falta
+## Notebook
+[MicroProyecto1_StartUp.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/notebooks/MicroProyecto1_StartUp.ipynb)
 
-* Agregar al EDA analísis por codificación en datos_agro()
-* Agregar al EDA index del rango creado de fechas y mensionarlos y analizarlos primero como valores perdidos y luego como 0 (cero)
+## Reproducidad
 
-## Explicar
-
+Sí estas usando Linux:
 * `sh run.sh`
 
+Sí estas usando Windows:
 * `python src/model_dispatcher.py --producto VER0049 --study False`
 * `python src/train.py --test 1`
