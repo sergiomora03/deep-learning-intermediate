@@ -72,6 +72,12 @@ recurrentes).
 |Notebook|[Semana8_RedNeuronalRecurrente_LSTMBidireccional_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana8_RedNeuronalRecurrente_LSTMBidireccional_Actividad.ipynb)|.ipynb|
 |Notebook|[Semana8_RedNeuronalRecurrente_LSTMBidireccional_Actividad.html](https://sergiomora03.github.io/deep-learning-intermediate/Activities/Semana8_RedNeuronalRecurrente_LSTMBidireccional_Actividad.html)|.html|
 
+
+## Semana 12
+|Description  | File| Comments |
+|-----------: |:------------:|:---:|
+|Notebook|[Semana12_PreferenciasImplicitas_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana12_PreferenciasImplicitas_Actividad.ipynb)||
+
 # Micro-proyectos
 
 ## Micro-Proyecto1_Start-Up Agricola
