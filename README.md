@@ -78,6 +78,11 @@ recurrentes).
 |-----------: |:------------:|:---:|
 |Notebook|[Semana12_PreferenciasImplicitas_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana12_PreferenciasImplicitas_Actividad.ipynb)||
 
+## Semana 13
+|Description  | File| Comments |
+|-----------: |:------------:|:---:|
+|Notebook|[Semana13_FiltradoColaborativo_Surprise_Actividad.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Activities/Semana13_FiltradoColaborativo_Surprise_Actividad.ipynb)||
+
 # Micro-proyectos
 
 ## Micro-Proyecto1_Start-Up Agricola
