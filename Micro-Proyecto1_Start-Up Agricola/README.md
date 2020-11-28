@@ -30,6 +30,9 @@ http://mpastell.com/pweave/examples/index.html
 * [MicroProyecto1_StartUp.ipynb](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/notebooks/MicroProyecto1_StartUp.ipynb)
 * [MicroProyecto1_StartUp.html](https://sergiomora03.github.io/deep-learning-intermediate/Micro-Proyecto1_Start-Up%20Agricola/notebooks/MicroProyecto1_StartUp.html)
 
+## Documentación
+* [Startup - Agricola.pdf](https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto1_Start-Up%20Agricola/notebooks/Startup%20-%20Agricola.pdf)
+
 ## Reproducidad
 
 Sí estas usando Linux:
