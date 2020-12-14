@@ -1,0 +1,335 @@
+\documentclass{article}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[colorinlistoftodos, spanish]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{fancybox}
+\usepackage{multicol}
+\usepackage[citestyle=authoryear]{biblatex}
+\bibliography{micro_proyecto_2_reference}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Pág. \thepage}
+\lhead{Micro Proyecto 2}
+\rfoot{Universidad de los Andes}
+\lfoot{Sistema de Recomendación}
+
+\title{%
+\begin{minipage}{0.3\textwidth}
+    \includegraphics[width=0.9\textwidth]{../Micro-Proyecto 2_Sistemas de Recomendacion MusicApp/img/logo-uniandes.png}
+\end{minipage}%
+    \hfill
+\begin{minipage}{0.6\textwidth}
+    Sistema de Recomendación para \textbf{LastFM}.
+\end{minipage}
+\line(3,0){400}\\
+\textbf{Universidad de los Andes}
+}
+\author{
+Sergio Alberto Mora Pardo \thanks{Administrador del repositorio \href{https://github.com/sergiomora03/deep-learning-intermediate}{sergiomora03/deep-learning-intermediate}}\\
+\small{\href{https://github.com/sergiomora03}{github: sergiomora03}}\\
+\small \href{mailto:s.morap@uniandes.edu.co}{s.morap@uniandes.edu.co}\\
+\small Bogotá D.C.\\
+\and
+Jahir Stevens Rodriguez Riveros\\
+\small{\href{https://github.com/jarorid}{github: jarorid}}\\
+\small \href{mailto:js.rodriguezr@uniandes.edu.co}{js.rodriguezr@uniandes.edu.co}\\
+\small Bogotá D.C.\\
+\and
+Cindy Zulima Alzate Roman\\
+\small{\href{https://github.com/czalzate}{github: czalzate}}\\
+\small \href{mailto:c.alzate@uniandes.edu.co}{c.alzate@uniandes.edu.co}\\
+\small Bogotá D.C.\\
+}
+
+\begin{document}
+%\date{\large \today}
+\date{13 de diciembre de 2020}
+\maketitle
+\line(1,0){400}\\
+
+%\shadowbox{
+%	\begin{minipage}[b][1\height][t]{0.9\textwidth}
+%	NOTA: Los campos consumidos por la calculadora, fueron manifestados por los \textbf{Análistas de Servicio Especializado}. De manera, que se integraron basados en la necesidad de ellos.
+%\end{minipage}}\\
+
+%\begin{figure}[h]
+%    \centering
+%	\includegraphics[width=0.6\textwidth]{../../img/semestres.png}
+%    \caption{Bosquejo de un programa ordenado por semestres.}
+%    \label{fig:semestres}
+%\end{figure}
+
+%\begin{multicols}{2}
+%\end{multicols}
+
+\section{Introducción}
+
+Una aplicación de música quiere actualizar su aplicación online para que genere recomendaciones a sus usuarios de nuevos artistas para escuchar. El sistema de recomendación debe tomar en cuenta las preferencias de cada usuario, con el fin de ofrecer recomendaciones automáticas y personalizadas.
+
+Por ello se le pide, desarrollar un algoritmo de recomendación de artistas para cada usuario.
+
+% Una vez a desarrollado su primer sistema de recomendación, intente mejorarlo con respecto a la métrica de su elección, considerando además la información que encuentra en "lastfm-dataset-360K/usersha1-artmbid-artname-plays.tsv", donde encuentra información de tipo socio-demográfico por usuario.
+
+\subsection{Definición del problema}
+
+Actualmente, la compañia desea actualizar la aplicación online para que genere recomendaciones a nuevos usuarios de artistas para escuchar. La información se encuentra en \cite{Celma:Springer2010} en la página de \href{http://ocelma.net/MusicRecommendationDataset/lastfm-360K.html}{lastfm-360K}.
+
+\subsection{Pregunta de Investigación}
+
+¿Cómo generar recomendaciones automáticas y personalizadas teniendo en cuenta las preferencias de cada usuario?
+
+\section{Metodología}
+
+Usaremos la librería \href{http://surpriselib.com/}{\textbf{Surprise}} es un scikit\footnote{SciKits (abreviatura de SciPy Toolkits) son paquetes complementarios para SciPy, alojados y desarrollados por separado e independientemente de la distribución principal de SciPy. Todos los SciKits tienen licencia aprobada por OSI.} de Python para construir y analizar sistemas de recomendación que traten con datos explicitos de acuerdo con \cite{Hug2020}.
+En ella se enmarcan divesos modelos para construir sistemas de recomendación inspirados\footnote{De esto se conversará más adelante, en la sección de presentación de modelos.} y basados en \href{https://scikit-learn.org/stable/}{\textit{skit-learn}} una librería de Python para machine learning según \cite{scikit-learn}.
+
+La librería \href{http://surpriselib.com/}{\textbf{Surprise}} provee diversos algoritmos \textit{listos para usar} como lo son: Metódos de vecindades o Factorización matricial. Así mismo, provee herramientas para evaluar, analizar y comparar el desempeño de los algorítmos. De acuerdo con \cite{Hug2020} muchas de estas herramientas han sido basadas en \href{https://scikit-learn.org/stable/}{\textit{skit-learn}} como lo son la validación cruzada y la busqueda exaustiva sobre un conjunto de parámetros.
+
+Para el desarrollo y actualización del problema. Se hace necesario crear una API\footcite[Algunas API basadas en experincias con la librería de \textit{skit-learn}]{sklearn_api}.
+No obstante, el tiempo es limitado. Generando que nos concentremos en el desarrollo de los modelos y la mejora de los mismos. En este sentido, nuestra metodología es la siguiente:
+
+\begin{enumerate}
+    \item Análisis Exploratorio de Datos.
+    \subitem Número de usuario, número de artistas, análisis de Pareto sobre las reproducciones.
+    \subitem Dinámica de usuarios con artistas.
+    \subitem Análisis de la distribución de reproducciones por usuario.
+    \subitem Distribución de reproducciones por artista.
+    \subitem Análisis de distribución por percentiles.
+    \subitem Análisis de asimetría y curtosis en la distribución de las reproducciones.
+    \item Benchmark de modelos.
+    \subitem Selección de métricas.
+    \subitem Selección de base de datos.
+    \subitem Análisis de una muestra.
+    \item Selección del modelo.
+    \subitem Train test split
+    \item Hiperparámetros del mejor modelo.
+    \subitem Mejora de desempeño del modelo con mejor ajuste.
+\end{enumerate}
+
+\subsection{Identificación y Presentación de los modelos}
+
+Para la identificación de los modelos, se implementó un \textit{benchmark} con en el cual se corrieron los siguientes modelos:
+
+\begin{itemize}
+    \item \textit{\textbf{Algoritmos basados en factorización matricial}}
+    \subitem \textbf{SVD}\footnote{Popularizado por \href{https://sifter.org/~simon/journal/20061211.html}{\textit{Simon Funk}} por el premio de Netflix} Este modelo es equivalente a la Factorización Matricial Probabilistica por \cite{pmf2007}
+    \subitem \textbf{Non-negative Matrix Factorization}. Algoritmo de filtro colaborativo basado en una factorización matricial no negativa, equivalente al de \cite{Zhang2013} pero en su forma no regularizada.
+    \item \textit{\textbf{Pronósticos Aleatorias}}
+    \subitem \textbf{Normal Predictor}. Supone una distribución normal en la distribución del conjunto de entrenamiento y pronóstica una clasificación aleatoria.
+    \item \textit{\textbf{Baseline}}
+    \subitem \textbf{Baseline Only}. Algoritmo que predice la estimación de la línea de base para un usuario y artículo determinados siguienda a \cite{5197422}.
+    \item \textit{\textbf{Co-Clustering}}
+    \subitem \textbf{Co-Clustering}. Es un algoritmo de filtrado colaborativo basado en agrupación conjunta. Existe una implementación usada en la librería \textbf{Surprise} de \cite{George05ascalable}.
+    \item \textit{\textbf{Algoritmos basado en Vecindades}}\footcite[En la librería Surprise se construyó estos con algoritmos que se derivan directamente de un enfoque básico de vecinos más cercanos.]{Hug2020}.
+    \subitem \textbf{K-NN Básico}.
+    \subitem \textbf{K-NN Baseline}. Un algoritmo de filtrado colaborativo básico que tiene en cuenta una calificación de referencia.
+\end{itemize}
+
+\subsection{Estimación de Coeficientes}
+
+\cite{George2005} indica que La mayoría de los métodos de filtrado colaborativo existentes se basan en criterios de correlación, descomposición de valor singular (SVD) y factorización matricial no negativa. (NNMF) han demostrado proporcionar una alta precisión predicciones de calificaciones.
+
+En la librería \textbf{Surprise} se enmarcan los modelos y algoritmos usados. En este sentido, se destina el apéndice para comentar sobre la estimación de los coeficientes\footnote{Por defecto se utiliza el RMSE como la métrica de error a minimizar para la predicción.}.
+Para la construcción de los coeficientes y comentarios, se destina el apendice \ref{appendix:a}.
+
+
+\section{Resultados y Análisis}
+\subsection{Análisis de los Modelos}
+\subsubsection{Construcción de los modelos}
+\subsubsection{Interpretación de los coeficientes}
+\subsubsection{Supuestos de los Modelos}
+\subsection{Análisis de los Resultados}
+
+\section{Conclusiones}
+%\todo{Recomendaciones basadas en los resultados de los modelos}
+
+\newpage
+\printbibliography
+
+\newpage
+\appendix
+\section{Algoritmos en Surprise}
+\label{appendix:a}
+
+\subsection{Notaciones}
+
+$R$ : the set of all ratings.
+
+$R_{train}$, $R_{test}$ and $\hat{R}$ denote the training set, the test set, and the set of predicted ratings.
+
+$U$ : the set of all users. $u$ and $v$ denotes users.
+
+$I$ : the set of all items. $i$ and $j$ denotes items.
+
+$U_i$ : the set of all users that have rated item $i$.
+
+$U_{ij}$ : the set of all users that have rated both items $i$ and $j$.
+
+$I_u$ : the set of all items rated by user $u$.
+
+$I_{uv}$ : the set of all items rated by both users $u$ and $v$.
+
+$r_{ui}$ : the true rating of user $u$ for item $i$.
+
+$\hat{r}{ui}$ : the estimated rating of user $u$ for item $i$.
+
+$b_{ui}$ : the baseline rating of user $u$ for item $i$.
+
+$\mu$ : the mean of all ratings.
+
+$\mu_u$ : the mean of all ratings given by user $u$.
+
+$\mu_i$ : the mean of all ratings given to item $i$.
+
+$\sigma_u$ : the standard deviation of all ratings given by user $u$.
+
+$\sigma_i$ : the standard deviation of all ratings given to item $i$.
+
+$N_i^k(u)$ : the $k$ nearest neighbors of user $u$ that have rated item $i$. This set is computed using a \href{https://surprise.readthedocs.io/en/stable/similarities.html#module-surprise.similarities}{similarity metric}.
+
+$N_u^k(i)$ : the $k$ nearest neighbors of item $i$ that are rated by user $u$. This set is computed using a \href{https://surprise.readthedocs.io/en/stable/similarities.html#module-surprise.similarities}{similarity metric}.\\
+\\
+
+\shadowbox{
+	\begin{minipage}[b][1\height][t]{0.9\textwidth}
+	NOTA: Estas notaciones son extridas directamente de la librería \textbf{Surprise} al igual que las ecuaciones descritas a continuación.
+\end{minipage}}\\
+
+\subsection{Algoritmos base:}
+
+\subsubsection{NormalPredictor}
+
+Este algoritmo predice un rating aleatorio asumiendo que la muestra de entrenamiento proviene de una distribución Normal:
+
+\begin{equation}
+    \hat r_{ui}\sim Normal(\hat \mu, \hat \sigma)
+\end{equation}
+
+donde,
+
+\begin{equation}
+\hat \mu = \frac{1}{|R_{entrenamiento}|}\sum_{r_{ui} \in R_{entrenamiento}} r_{ui}
+\end{equation}
+
+\begin{equation}
+\hat \sigma= \sqrt{\sum_{r_{ui} \in R_{entrenamiento}} \frac{(r_{ui}-\hat \mu)^2}{|R_{entrenamiento}|}}
+\end{equation}
+
+
+\subsubsection{BaselineOnly}
+
+El algoritmo obtiene su estimación a partir del rating medio y las desviaciones observadas para la pelicula $i$ y el usuario $u$:
+
+\begin{equation}
+\hat r_{ui}= \mu + b_i + b_u
+\end{equation}
+
+donde $\mu$ es el rating promedio de los datos de entrenamiento, $b_i$ que es el rating promedio del item $i$ menos $\mu$ y $b_u$ que es el rating promedio del usuario $u$ menos $\mu$.
+
+
+\subsection{Algoritmos de vecindades:}
+
+\subsubsection{KNNBasic}
+
+El \textbf{KNNBasic} es un modelo que estima los ratings de acuerdo con los $k$ vecinos más cercanos, ya sea por usuario o por item, de acuerdo con:
+
+\begin{equation}
+\hat r_{ui}=\frac{\sum_{v\in N_i^k(u)}sim(u,v) \cdot r_{vi}}{\sum_{v\in N_i^k(u)}sim(u,v)}
+\end{equation}
+
+ó
+
+\begin{equation}
+\hat r_{ui}=\frac{\sum_{j\in N_u^k(i)}sim(i,j) \cdot r_{uj}}{\sum_{j\in N_u^k(i)}sim(i,j)}
+\end{equation}
+
+donde $sim$ es la función de \href{https://surprise.readthedocs.io/en/stable/similarities.html#module-surprise.similarities}{similitud}
+
+
+\subsubsection{KNNWithMeans}
+
+Este algoritmo modifica el \textbf{KNNBasic} tomando además en cuenta los ratings promedios de los usuarios:
+
+\begin{equation}
+\hat r_{ui}=\mu_u + \frac{\sum_{v\in N_i^k(u)}sim(u,v) \cdot (r_{vi}-\mu_v)}{\sum_{v\in N_i^k(u)}sim(u,v)}
+\end{equation}
+
+ó
+
+\begin{equation}
+\hat r_{ui}=\mu_i + \frac{\sum_{j\in N_u^k(i)}sim(i,j) \cdot (r_{uj}-\mu_j)}{\sum_{j\in N_u^k(i)}sim(i,j)}
+\end{equation}
+
+\subsubsection{KNNWithZScore}
+
+Este algoritmo toma en cuenta las similitudes y los ratings estandarizados:
+
+\begin{equation}
+\hat r_{ui}=\mu_u + \sigma_u\frac{\sum_{v\in N_i^k(u)}sim(u,v) \cdot (r_{vi}-\mu_v)/\sigma_v}{\sum_{v\in N_i^k(u)}sim(u,v)}
+\end{equation}
+
+ó
+
+\begin{equation}
+\hat r_{ui}=\mu_i + \sigma_i \frac{\sum_{j\in N_u^k(i)}sim(i,j) \cdot (r_{uj}-\mu_j)/\sigma_j}{\sum_{j\in N_u^k(i)}sim(i,j)}
+\end{equation}
+
+
+\subsubsection{KNNBaseline}
+
+Este algoritmo toma en cuenta el rating medio y las desviaciones observadas para la pelicula $i$ y el usuario $u$:
+
+\begin{equation}
+\hat r_{ui}=b_{ui} + \frac{\sum_{v\in N_i^k(u)}sim(u,v) \cdot (r_{vi}-b_{vi})}{\sum_{v\in N_i^k(u)}sim(u,v)}
+\end{equation}
+
+ó
+
+\begin{equation}
+\hat r_{ui}=b_{ui} + \frac{\sum_{j\in N_u^k(i)}sim(i,j) \cdot (r_{uj}-b_{uj})}{\sum_{j\in N_u^k(i)}sim(i,j)}
+\end{equation}
+
+\subsection{Algoritmos de factores latentes:}
+
+\subsubsection{SVD}
+
+Este algoritmo corresponde con la factorización de la matriz de ratings (visto en la actividad anterior):
+
+\begin{equation}
+\hat r_{ui}=q_{i}'p_{u} + \mu + b_i + b_u
+\end{equation}
+
+\subsubsection{SVDpp}
+
+Este algoritmo extiende el SVD al tomar en cuenta los ratings implícitos, ó la cantidad de \textbf{feedback} implícito:
+
+\begin{equation}
+\hat r_{ui}=\mu + b_i + b_u + q_{i}'\biggl(p_{u} + |I_u|^{-1/2} \sum_{j\in I_u} y_j \biggr)
+\end{equation}
+
+donde $y_j$ es un valor binario que captura el hecho de que el usuario $u$ haya calificado o revelado su rating para $j$ (sin importar el valor del rating).
+
+\subsubsection{NMF}
+
+Este algoritmo corresponde con la factorización no-negativa de la matriz de ratings, y sigue la misma formulación del SVD. Solo que se garantiza que los factores sean no-negativos.
+
+
+\subsection{Algoritmo de clustering:}
+
+\subsubsection{Co-clustering}
+
+En este algoritmo, los usuarios y los items son asignados a los clusters $C_u$, $C_i$ y $C_{ui}$:
+
+\begin{equation}
+\hat r_{ui}=\bar{C_{ui}} + (\mu_u - \bar{C_u}) + (\mu_i - \bar{C_i})
+\end{equation}
+
+donde $\bar{C_{ui}}, \bar{C_u}, \bar{C_i}$ son respectivamente los rating promedio de los clusters $C_{ui}, C_u$ y $C_i$. Los clusters se asignan de acuerdo con K-medias.
+
+\end{document}

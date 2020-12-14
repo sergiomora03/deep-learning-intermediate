@@ -1,0 +1,14 @@
+[0] Config.pm:312> INFO - This is Biber 2.15 (beta)
+[1] Config.pm:315> INFO - Logfile is 'build\MicroProyecto2.blg'
+[263] biber-MSWIN64:330> INFO - === 
+[311] Biber.pm:415> INFO - Reading 'build\MicroProyecto2.bcf'
+[749] Biber.pm:952> INFO - Found 9 citekeys in bib section 0
+[837] Biber.pm:4334> INFO - Processing section 0
+[887] Biber.pm:4523> INFO - Looking for bibtex format file 'micro_proyecto_2_reference.bib' for section 0
+[909] bibtex.pm:1682> INFO - LaTeX decoding ...
+[952] bibtex.pm:1494> INFO - Found BibTeX data source 'micro_proyecto_2_reference.bib'
+[1182] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1183] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1183] Biber.pm:4162> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'es-ES'
+[1229] bbl.pm:651> INFO - Writing 'build\MicroProyecto2.bbl' with encoding 'UTF-8'
+[1259] bbl.pm:754> INFO - Output to build\MicroProyecto2.bbl

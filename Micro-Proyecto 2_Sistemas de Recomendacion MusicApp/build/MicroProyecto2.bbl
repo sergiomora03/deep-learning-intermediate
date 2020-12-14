@@ -1,0 +1,506 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{sklearn_api}{inproceedings}{}
+      \name{author}{15}{}{%
+        {{un=0,uniquepart=base,hash=5325438f4daa7970e2720791d9ac690f}{%
+           family={Buitinck},
+           familyi={B\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=832b9967410c05c324eec6e9b19da71e}{%
+           family={Louppe},
+           familyi={L\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3b6c8582cea4e8b6576137b6a72cadc}{%
+           family={Blondel},
+           familyi={B\bibinitperiod},
+           given={Mathieu},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bab4e5caee2d67831e464ce575022b37}{%
+           family={Pedregosa},
+           familyi={P\bibinitperiod},
+           given={Fabian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8a6c9c0890b96766b8cc7c152d7b86a8}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=721be0317527f44db425f7a97dcab15e}{%
+           family={Grisel},
+           familyi={G\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7fb1184b4b06404ea26547130860771e}{%
+           family={Niculae},
+           familyi={N\bibinitperiod},
+           given={Vlad},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86e647e5c801f3ce733927f75f029463}{%
+           family={Prettenhofer},
+           familyi={P\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=12ebe424e1c87de156c57e8fa7683f46}{%
+           family={Gramfort},
+           familyi={G\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dd23caf60ef6fe47d09bad8ff0dc8695}{%
+           family={Grobler},
+           familyi={G\bibinitperiod},
+           given={Jaques},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b77398bb05b09a70738309551dc505a7}{%
+           family={Layton},
+           familyi={L\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0fd9a0e34f1b2adda41357c948d14986}{%
+           family={VanderPlas},
+           familyi={V\bibinitperiod},
+           given={Jake},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=557b78cbca511465f0b78ac10c0a9ce3}{%
+           family={Joly},
+           familyi={J\bibinitperiod},
+           given={Arnaud},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3309917dfb1d5f26d52eb9264a3296a0}{%
+           family={Holt},
+           familyi={H\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfa3239dded54488f9a82a5718d5b927}{%
+           family={Varoquaux},
+           familyi={V\bibinitperiod},
+           given={Gaël},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8013e59991ab833d42c86ac9daf5e6ba}
+      \strng{fullhash}{e16647faba7aef4d40aca3c94f5333ad}
+      \strng{bibnamehash}{8013e59991ab833d42c86ac9daf5e6ba}
+      \strng{authorbibnamehash}{8013e59991ab833d42c86ac9daf5e6ba}
+      \strng{authornamehash}{8013e59991ab833d42c86ac9daf5e6ba}
+      \strng{authorfullhash}{e16647faba7aef4d40aca3c94f5333ad}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ECML PKDD Workshop: Languages for Data Mining and Machine Learning}
+      \field{title}{{API} design for machine learning software: experiences from the scikit-learn project}
+      \field{year}{2013}
+      \field{pages}{108\bibrangedash 122}
+      \range{pages}{15}
+    \endentry
+    \entry{Celma:Springer2010}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=58b84d8b5b32ae60661fa45a67ef5813}{%
+           family={Celma},
+           familyi={C\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{58b84d8b5b32ae60661fa45a67ef5813}
+      \strng{fullhash}{58b84d8b5b32ae60661fa45a67ef5813}
+      \strng{bibnamehash}{58b84d8b5b32ae60661fa45a67ef5813}
+      \strng{authorbibnamehash}{58b84d8b5b32ae60661fa45a67ef5813}
+      \strng{authornamehash}{58b84d8b5b32ae60661fa45a67ef5813}
+      \strng{authorfullhash}{58b84d8b5b32ae60661fa45a67ef5813}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Music Recommendation and Discovery in the Long Tail}}
+      \field{year}{2010}
+    \endentry
+    \entry{George05ascalable}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2d41c4d12a0236ddd89a142d9c8186e1}{%
+           family={George},
+           familyi={G\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2d41c4d12a0236ddd89a142d9c8186e1}
+      \strng{fullhash}{2d41c4d12a0236ddd89a142d9c8186e1}
+      \strng{bibnamehash}{2d41c4d12a0236ddd89a142d9c8186e1}
+      \strng{authorbibnamehash}{2d41c4d12a0236ddd89a142d9c8186e1}
+      \strng{authornamehash}{2d41c4d12a0236ddd89a142d9c8186e1}
+      \strng{authorfullhash}{2d41c4d12a0236ddd89a142d9c8186e1}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Fifth IEEE International Conference on Data Mining}
+      \field{title}{A scalable collaborative filtering framework based on co-clustering}
+      \field{year}{2005}
+      \field{pages}{625\bibrangedash 628}
+      \range{pages}{4}
+    \endentry
+    \entry{George2005}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2d41c4d12a0236ddd89a142d9c8186e1}{%
+           family={George},
+           familyi={G\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=24a3738d231e380c117451446c0b73bf}{%
+           family={Merugu},
+           familyi={M\bibinitperiod},
+           given={Srujana},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c52a7b48ad4a7f5210ca8a5644da4e8d}
+      \strng{fullhash}{c52a7b48ad4a7f5210ca8a5644da4e8d}
+      \strng{bibnamehash}{c52a7b48ad4a7f5210ca8a5644da4e8d}
+      \strng{authorbibnamehash}{c52a7b48ad4a7f5210ca8a5644da4e8d}
+      \strng{authornamehash}{c52a7b48ad4a7f5210ca8a5644da4e8d}
+      \strng{authorfullhash}{c52a7b48ad4a7f5210ca8a5644da4e8d}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Department of Computer Science, Texas A & M University}
+      \field{title}{A Scalable Collaborative Filtering Framework based on Co-clustering}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.113.6458&rep=rep1&type=pdf
+      \endverb
+      \verb{url}
+      \verb http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.113.6458&rep=rep1&type=pdf
+      \endverb
+    \endentry
+    \entry{Hug2020}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b36c3ed1c3b4a842b793ffe0e5851fd4}{%
+           family={Hug},
+           familyi={H\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {The Open Journal}%
+      }
+      \strng{namehash}{b36c3ed1c3b4a842b793ffe0e5851fd4}
+      \strng{fullhash}{b36c3ed1c3b4a842b793ffe0e5851fd4}
+      \strng{bibnamehash}{b36c3ed1c3b4a842b793ffe0e5851fd4}
+      \strng{authorbibnamehash}{b36c3ed1c3b4a842b793ffe0e5851fd4}
+      \strng{authornamehash}{b36c3ed1c3b4a842b793ffe0e5851fd4}
+      \strng{authorfullhash}{b36c3ed1c3b4a842b793ffe0e5851fd4}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{52}
+      \field{title}{Surprise: A Python library for recommender systems}
+      \field{volume}{5}
+      \field{year}{2020}
+      \field{pages}{2174}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.02174
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.21105/joss.02174
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.21105/joss.02174
+      \endverb
+    \endentry
+    \entry{5197422}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=68e28d54204820006ff12df112baa4c7}{%
+           family={{Koren}},
+           familyi={K\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=44e057bfb865c6e13190d32b773029dc}{%
+           family={{Bell}},
+           familyi={B\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=769a4c9e2ef003c79d4d043afbae7207}{%
+           family={{Volinsky}},
+           familyi={V\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0eb9645b39e5d42cf664197e5d0a7367}
+      \strng{fullhash}{0eb9645b39e5d42cf664197e5d0a7367}
+      \strng{bibnamehash}{0eb9645b39e5d42cf664197e5d0a7367}
+      \strng{authorbibnamehash}{0eb9645b39e5d42cf664197e5d0a7367}
+      \strng{authornamehash}{0eb9645b39e5d42cf664197e5d0a7367}
+      \strng{authorfullhash}{0eb9645b39e5d42cf664197e5d0a7367}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer}
+      \field{number}{8}
+      \field{title}{Matrix Factorization Techniques for Recommender Systems}
+      \field{volume}{42}
+      \field{year}{2009}
+      \field{pages}{30\bibrangedash 37}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/MC.2009.263
+      \endverb
+    \endentry
+    \entry{scikit-learn}{article}{}
+      \name{author}{16}{}{%
+        {{un=0,uniquepart=base,hash=6e96fec0d63277626bb324bd28cdecb7}{%
+           family={Pedregosa},
+           familyi={P\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b99c2df2144dc5ee09317a7833dea42d}{%
+           family={Varoquaux},
+           familyi={V\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=955f19cea89ae97bb7936078898e6255}{%
+           family={Gramfort},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2787869c9954c1d4e9891098995feb75}{%
+           family={Michel},
+           familyi={M\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=86d47ab9ca1a9dae108b4d4a0418c679}{%
+           family={Thirion},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d42f9e9cec95da1dad2232eac74982ab}{%
+           family={Grisel},
+           familyi={G\bibinitperiod},
+           given={O.},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8bd8ef25258dd2311f92df23fe71ecf7}{%
+           family={Blondel},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a5ee41fa92b9e425806e1773853f1932}{%
+           family={Prettenhofer},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0c808557734e8929976d1f06f99c4ff2}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9662a6ea01596c6dd450817ccac81c4a}{%
+           family={Dubourg},
+           familyi={D\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=39e81a3e2193b954680a0ab847a0bb55}{%
+           family={Vanderplas},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=14c4a498c032f77d0b83f86c710dd50e}{%
+           family={Passos},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc075b18fb4710a1a37b258804c57efe}{%
+           family={Cournapeau},
+           familyi={C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=67ec0e8add781665a43010c9559111e9}{%
+           family={Brucher},
+           familyi={B\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dcb3918f09eb8785e6b212a907cc37cf}{%
+           family={Perrot},
+           familyi={P\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ab20fcf381cd45daa82417c6fc595051}{%
+           family={Duchesnay},
+           familyi={D\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3a097aa3ebf2b8c2acf988341dde9710}
+      \strng{fullhash}{7a67607c66e4af944b5f16461d6d0a87}
+      \strng{bibnamehash}{3a097aa3ebf2b8c2acf988341dde9710}
+      \strng{authorbibnamehash}{3a097aa3ebf2b8c2acf988341dde9710}
+      \strng{authornamehash}{3a097aa3ebf2b8c2acf988341dde9710}
+      \strng{authorfullhash}{7a67607c66e4af944b5f16461d6d0a87}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{title}{Scikit-learn: Machine Learning in {P}ython}
+      \field{volume}{12}
+      \field{year}{2011}
+      \field{pages}{2825\bibrangedash 2830}
+      \range{pages}{6}
+    \endentry
+    \entry{pmf2007}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=bd2be300d445e9f6db7808f9533e66cb}{%
+           family={Salakhutdinov},
+           familyi={S\bibinitperiod},
+           given={Ruslan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=effa745fe0078f9f6790f688512c5a53}{%
+           family={Mnih},
+           familyi={M\bibinitperiod},
+           given={Andriy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9979ef5fd8fc27fbfa15d8f93d2b32da}
+      \strng{fullhash}{9979ef5fd8fc27fbfa15d8f93d2b32da}
+      \strng{bibnamehash}{9979ef5fd8fc27fbfa15d8f93d2b32da}
+      \strng{authorbibnamehash}{9979ef5fd8fc27fbfa15d8f93d2b32da}
+      \strng{authornamehash}{9979ef5fd8fc27fbfa15d8f93d2b32da}
+      \strng{authorfullhash}{9979ef5fd8fc27fbfa15d8f93d2b32da}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Department of Computer Science, University of Toronto}
+      \field{title}{Probabilistic Matrix Factorization}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://papers.nips.cc/paper/2007/file/d7322ed717dedf1eb4e6e52a37ea7bcd-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://papers.nips.cc/paper/2007/file/d7322ed717dedf1eb4e6e52a37ea7bcd-Paper.pdf
+      \endverb
+    \endentry
+    \entry{Zhang2013}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8a45c843dc33b71402b796a7a10e8d53}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yu-Xiong},
+           giveni={Y\bibinithyphendelim X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9b13d2062c69ea14dbeaa06ac6b92a4f}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yu-Jin},
+           giveni={Y\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7c8e3fdbb52e8a1829c5237ac45b9a67}
+      \strng{fullhash}{7c8e3fdbb52e8a1829c5237ac45b9a67}
+      \strng{bibnamehash}{7c8e3fdbb52e8a1829c5237ac45b9a67}
+      \strng{authorbibnamehash}{7c8e3fdbb52e8a1829c5237ac45b9a67}
+      \strng{authornamehash}{7c8e3fdbb52e8a1829c5237ac45b9a67}
+      \strng{authorfullhash}{7c8e3fdbb52e8a1829c5237ac45b9a67}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING}
+      \field{number}{6}
+      \field{title}{Nonnegative Matrix Factorization: A Comprehensive Review}
+      \field{volume}{25}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb http://oa.ee.tsinghua.edu.cn/~zhangyujin/Download-Paper/E224%3DTKDE-13.pdf
+      \endverb
+      \verb{url}
+      \verb http://oa.ee.tsinghua.edu.cn/~zhangyujin/Download-Paper/E224%3DTKDE-13.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
