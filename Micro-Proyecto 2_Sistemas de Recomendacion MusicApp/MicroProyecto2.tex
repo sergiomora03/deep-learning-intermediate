@@ -9,6 +9,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{fancybox}
 \usepackage{multicol}
+\usepackage[ruled,vlined]{algorithm2e}
 \usepackage[citestyle=authoryear]{biblatex}
 \bibliography{micro_proyecto_2_reference}
 
@@ -21,7 +22,7 @@
 
 \title{%
 \begin{minipage}{0.3\textwidth}
-    \includegraphics[width=0.9\textwidth]{../Micro-Proyecto 2_Sistemas de Recomendacion MusicApp/img/logo-uniandes.png}
+    \includegraphics[width=0.9\textwidth]{logo-uniandes.png}
 \end{minipage}%
     \hfill
 \begin{minipage}{0.6\textwidth}
@@ -78,7 +79,7 @@ Por ello se le pide, desarrollar un algoritmo de recomendación de artistas para
 
 \subsection{Definición del problema}
 
-Actualmente, la compañia desea actualizar la aplicación online para que genere recomendaciones a nuevos usuarios de artistas para escuchar. La información se encuentra en \cite{Celma:Springer2010} en la página de \href{http://ocelma.net/MusicRecommendationDataset/lastfm-360K.html}{lastfm-360K}.
+Actualmente, la compañia desea actualizar la aplicación online para que genere recomendaciones a nuevos usuarios de artistas para escuchar. La información se encuentra en \cite{CelmaSpringer2010} en la página de \href{http://ocelma.net/MusicRecommendationDataset/lastfm-360K.html}{lastfm-360K}.
 
 \subsection{Pregunta de Investigación}
 
@@ -140,14 +141,189 @@ Para la construcción de los coeficientes y comentarios, se destina el apendice 
 
 
 \section{Resultados y Análisis}
+
+Antes de iniciar con el análisis de los modelos, es preciso indicar que se realizaron procesos sobre la base de datos. Los cuales, pueden ser consultados en el notebook \textbf{MicroProyecto2\_MusicRecommender.ipynb} o de forma resumida en el apendice \ref{appendix:b}. %%%%%%\href{https://nbviewer.jupyter.org/github/sergiomora03/deep-learning-intermediate/blob/master/Micro-Proyecto\%202_Sistemas\%20de\%20Recomendacion\%20MusicApp/MicroProyecto2_MusicRecommender.ipynb}{MicroProyecto2_MusicRecommender.ipynb}
+
+Así mismo, el proceso de construcción de los modelos se hio con base en una muestra de 100.000 datos. Sin embargo, solo se mencionan resultados parciales de los modelos bajo los datos preprocesados  y no sobre la muestra de 100.000 registros.
+
 \subsection{Análisis de los Modelos}
 \subsubsection{Construcción de los modelos}
-\subsubsection{Interpretación de los coeficientes}
-\subsubsection{Supuestos de los Modelos}
+
+Después del preprocesamiento de los datos, se construyo un benchamark de los modelos. Componiendo la siguiente estructura en los parámetros para los modelos:
+
+\begin{verbatim}
+    bsl_options = {'method': 'als',
+                    'n_epochs': 20,
+                    'reg_u': 12, 
+                    'reg_i': 5  
+                    }
+
+    sim_options = {'name': 'cosine',
+                   'user_based': False
+                  }
+\end{verbatim}
+
+Así mismo, dentro del Benchmark, se ejecuto una validación cruzada con la métrica: $RMSE$\footnote{Métrica por defecto de los modelos en la librería Surprise}.
+
+Este benchmark se corrió en un loop que contenía los siguientes algoritmos:
+
+\begin{itemize}
+    \item SVD
+    \item SVDpp
+    \item NMF
+    \item NormalPredictor
+    \item BaselineOnly
+    \item CoClustering
+\end{itemize}
+
+\\
+\\
+
+\shadowbox{
+	\begin{minipage}[b][1\height][t]{0.9\textwidth}
+	NOTA: Los algoritmos basados en vecindades no fueron incluidos en el benchmark, dado que requieren de un alto nivel de memoria.
+\end{minipage}}\\
+
+Los algortimos basados en vecindades, que fueron probados, pero no incluidos, son:
+
+\begin{itemize}
+    \item KNNBaseline
+    \item KNNBasic
+    \item KNNWithMeans
+    \item KNNWithZScore
+\end{itemize}
+
+Esto, nos arrojó los siguientes resultados:
+
+\begin{center}
+\begin{tabular}{ c c c c }
+Algoritmo & test_rmse & fit_time & test_time\\
+SVD & 446.24961 & 737.34729 & 147.18905\\
+SVDpp & 446.25344 & 4096.90589 & 2725.53427\\
+BaselineOnly & 446.25455 & 158.11567 & 7156.53749\\
+CoClustering & 446.29042 & 545.46788 & 7299.05748\\
+NMF & 446.46561 & 808.59790 & 5154.28341\\
+NormalPredictor & 446.95889 & 317.09584 & 7187.67404
+\end{tabular}
+\end{center}
+
+Luego, usando los parámetros previamente definidos, se utilizó un \verb|train_test_split()| dividiendo los datos entre 70\% para entrenamiento y 30\% para validación.
+Con esto, se definierón los siguientes algoritmos:
+
+\begin{itemize}
+    \item \verb|SVD_algo = SVD(random_state=0)|
+    \item \verb|Non_negative_algo = NMF()|
+    \item \verb|NormalPredictor_algo = NormalPredictor()|
+    \item \verb|Base_algo = BaselineOnly(bsl_options=bsl_options)|
+    \item \verb|CoClustering_algo = CoClustering(random_state=0)|
+    \item \verb|KNNBaseline_algo = KNNBaseline(bsl_options=bsl_options, sim_options=sim_options)|
+    \item \verb|KNNBasic_algo = KNNBasic(bsl_options=bsl_options, sim_options=sim_options)|
+\end{itemize}
+
+Si se evidencia, se puede notar como se logró incluir dos de los cuatro algoritmos basados en vecindades de la librería \textbf{Surprise}. Los incluidos son \textit{KNNBaseline} y \textit{KNNBasic}.\\
+\\
+
+\shadowbox{
+	\begin{minipage}[b][1\height][t]{0.9\textwidth}
+	NOTA: Se usaron los parámetros previamente definidos \textit{bsl\_options y sim\_options} para correr estos modelos. Esto con el fin de evaluar su desempeño bajo los mismos parámetros (en lo posible).
+\end{minipage}}\\
+
+Esto nos arrojó los siguientes resultados:
+
+\begin{center}
+\begin{tabular}{ c c c c }
+Algoritmo & RMSE & FCP & TIME\\
+SVD & 447.66120 & 0.00000 & 0 days 00:36:03.584442\\
+KNNBaseline & 447.66141 & 0.13813 & 0 days 00:26:27.350901\\
+CoClustering & 447.66123 & 0.15941 & 0 days 00:28:43.812763\\
+Base & 447.67855 & 0.18636 & 0 days 00:14:37.155037\\
+KNNBasic & 447.69664 & 0.18973 & 0 days 00:27:55.763893\\
+NormalPredictor & 448.36007 & 0.23288 & 0 days 00:14:13.305294\\
+Non\_negative & 447.87067 & 0.34954 & 0 days 00:44:41.959739
+\end{tabular}
+\end{center}
+
+Para este, si se logró incluir algoritmos basados en vecindades. Dada la partición, se incluyó \textit{KNN Baseline} y también \textit{KNN Basic}.
+
+A continuación, se construyó una rutina para calibrar los hiperparámetros del modelo con mejor ajuste, pueden evidenciarse en el algoritmo \ref{algo:change}. Escogiendo la métrica \textit{FCP}; en el notebbok se podrá evidenciar como se utilizó para la muestra de 100.000 y para la base de datos preprosesada. 
+
+\begin{algorithm}[H]
+\SetAlgoLined
+% \DontPrintSemicolon % Some LaTeX compilers require you to use \dontprintsemicolon instead 
+\KwIn{
+$data \gets Train, Test$ ; Un conjunto $N$ $N = \{n\_factors, n\_epochs, biased, reg\_pu, reg\_qi, reg\_bu, reg\_bi, lr\_bu, lr\_bi\}$ ; $N_i = [var_1, var_2, \ldots, var_j] \ j \in N_i $ ; $ N_i \gets $ \verb|list() $\forall \ i \in N$ ; $algoritmo \gets $ \verb|surprise.algo();
+}
+\KwOut{
+Una lista $B$ donde, $B_i \gets best \ parameter$ ; $B_i \in N_{ij}$
+}
+\KwResult{list(): Parámetros que máximizan el FCP.}
+ $current \gets \emptyset$\;
+ $C \gets \emptyset$\;
+\For{$i$ \textbf{to} $N$}{
+    \For{$j$ \textbf{to} $N_i$}{
+    $mod \gets algoritmo$\;
+    $mod.args = N_{ij}$\;
+    $preds \gets mod.fit.test$\;
+    $accuracy \gets preds.FCP$\;
+    \eIf{$accuracy \geq current$}{
+    $B \gets [N_{ij} \ \forall\ i \in N]$\;
+    $current \gets accuracy$
+    }{
+    \verb|next()\;
+    }
+
+    $C \gets C + \{c_i\}$\;
+    }
+}
+\Return{$C, B$}\;
+\caption{Calibración de hiperparámetros}
+\label{algo:change}
+\end{algorithm}
+
+Algoritmo~\ref{algo:change} contiene $C$ como contador de iteraciones para representar el avance del loop.\\
+
+
+Así mismo, se observará la preferencia sobre el algoritmo \textbf{Non-negative matrix factorization} debido a sus propiedades y desempeño en la métrica \textbf{ FCP}. No obstante, se resalta que el algoritmo \textbf{BaselineOnly} tiene un mejor ajuste sobre la muestra que sobre la base de datos preprocesada.
+
+En este sentido, la calibación de hiperparámetros fue sobre el algoritmo \textbf{Non-negative matrix fatorization} dado el desempeño. Sin embargo, este mismo algoritmo presentó un alto nivel de demanda de memoría. Siendo el más demorado en ejecutarse.
+
 \subsection{Análisis de los Resultados}
+
+% \subsubsection{Benchmark - Validación cruzada}
+
+% \subsubsection{Train Test Split}
+
+% \subsubsection{Calibración de hiperparámetros}
+
+Luego de evaluar varias configuraciones para los algoritmos evaluados, se obtuvieron los resultados expuestos en la tabla, que reflejan los valores de las métricas para una muestra aleatoria de 100.000 registros, donde se definió en 30\% el tamaño para la muestra de prueba (test).  Estos resultados permiten identificar al modelo BaselineOnly con los parámetros expuestos en el numeral 3.1.1., como aquel con mejor desempeño al presentar el menor valor en el RMSE, adicionalmente, no requiere un esfuerzo computacional importante al ejecutarlo.
+
+\begin{center}
+\begin{tabular}{ c c c c }
+	ALGO. & RMSE & FCP & TIME\\
+	SVD & 875.59809 & 0.48837 & 0 days 00:00:11.982058\\
+	KNN & 875.59780 & 0.65664 & 0 days 00:00:33.900963\\
+	Base & 875.59763 & 0.65664 & 0 days 00:00:01.985999	
+\end{tabular}
+\end{center}
+
+También se evidencia que la evaluación por k-vecinos cercanos es aquella con mayor capacidad de ejecución computacional necesita. 
+
+El algoritmo BaselineOnly requiere el ajuste de 4 parámetros\footnote{https://surprise.readthedocs.io/en/stable/prediction_algorithms.html#baseline-estimates-configuration}, a saber:
+
+\begin{itemize}
+    \item \verb|method|: Puede tomar los valores ALS (Alternating Least Squares) o SGD (Stochastic Gradient Descent)
+    \item \verb|n_epochs|: Corresponde al número de iteraciones del procedimiento ALS
+    \item \verb|reg_u|: Parámetro de regularización para usuarios 
+    \item \verb|reg_i|: Parámetro de regularización para items
+\end{itemize}
 
 \section{Conclusiones}
 %\todo{Recomendaciones basadas en los resultados de los modelos}
+\begin{enumerate}
+    \item Hacer uso del algoritmo BaselineOnly para la recomendación a generar para un nuevo usuario.
+    \item Buscar ampliar la base de datos con variables que enriquezcan la característica del conteo de reproducciones.
+    \item Ejecutar el algoritmo con una muestra de usuarios, teniendo en cuenta los artistas y reproducciones por usuario.
+\end{enumerate}
 
 \newpage
 \printbibliography
@@ -331,5 +507,57 @@ En este algoritmo, los usuarios y los items son asignados a los clusters $C_u$, 
 \end{equation}
 
 donde $\bar{C_{ui}}, \bar{C_u}, \bar{C_i}$ son respectivamente los rating promedio de los clusters $C_{ui}, C_u$ y $C_i$. Los clusters se asignan de acuerdo con K-medias.
+
+\section{Análisis Exploratorio de Datos}
+\label{appendix:b}
+
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=0.6\textwidth]{eda1.png}
+    \caption{Pareto por artistas.}
+    \label{fig:eda1}
+\end{figure}
+
+Después de revisar el Pareto en la figura \ref{fig:eda1}, se evidencia que 35 artistas representan el 80\% de las reproducciones.
+
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=0.2\textwidth]{eda2.png}
+    \caption{Distribución de reproducciones por artista.}
+    \label{fig:eda2}
+\end{figure}
+
+Como vemos en la figura \ref{fig:eda2}, existe una varianza de 18.598 reproducciones con un promedio de 12.907 sin embargo, se evidencia que la media esta sobre 208 reproducciones. Es decir, que existe un sesgo revisando la varianza, dado que los datos tienen tanta 'diversidad'. Ahora, revisaremos ¿cuántas reproducciones tiene cada usuario? con el fin de verificar esto.
+
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=0.6\textwidth]{eda3.png}
+    \caption{Pareto por usuario.}
+    \label{fig:eda3}
+\end{figure}
+
+Con el Pareto de la figura \ref{fig:eda3}, evidenciamos que 37 usuarios concentran el 80\% de las reproducciones.
+
+Vemos que de los 358.868 existe uno que ha reproducido 787.884 canciones, que representa el 20\% de los datos. Esto nos lleva a preguntarnos ¿Cuánto tiempo le habría tomado escuchar esas canciones?
+En \href{https://community.spotify.com/t5/Accounts/When-and-how-does-Spotify-count-songs-as-quot-listened-to-quot/m-p/952243/highlight/true#M120586}{Spotify} se cuenta una canción como reproducida después de que el usuario la escucha por más de 30 segundos. Sí suponemos que escucho todas las canciones al menos 30 segundos, este usuario tuvo que haber invertido en tiempo:
+
+\begin{verbatim}
+    Días:
+    273 días reproduciendo sin parar.
+    820 días reproduciendo mínimo 8 horas por día.
+    
+    Años:
+    0.7583333333333333 años reproduciendo sin parar.
+    2 años reproduciendo mínimo 8 horas por día.
+\end{verbatim}
+
+\begin{figure}[h]
+    \centering
+	\includegraphics[width=0.6\textwidth]{eda4.png}
+    \caption{Distribución de reproducciones por usuario.}
+    \label{fig:eda4}
+\end{figure}
+
+Vemos en la figura \ref{fig:eda4} que al concentrarse en menos de 100.000 reproducciones por usuario disminuye considerablemente la curtosis, incluso más que en la concentración de más de 100.000 reproducciones por usuario. Así mismo, vemos que la asimetría también disminuye considerablemente. De manera que, podemos concentrarnos mejor en esta distribución de reproducciones. No obstante, intentaremos disminuir a 60.000 reproducciones por usuario y observaremos si la distribución disminuye la asimetría y la curtosis. Dado que aún continua siendo leptocúrtica.
 
 \end{document}
